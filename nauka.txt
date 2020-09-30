@@ -1,0 +1,352 @@
+
+DZIEN 3
+
+
+konsola
+
+ls - listowanie katalogu
+ls -a - pokaz rowniez pliki/katalogi ukryte
+
+cp - kopiuj source target
+mv - przenies ...
+
+
+
+
+
+DZIEN 2
+
+Struktury/typy danych Javascript https://www.w3schools.com/js/default.asp
+
+a) tablica []
+
+var mojaTablica = [] 
+var mojaTablica = [
+    [],[],["asd"]
+]
+
+var mojaTablica = [function(){}, null, false, undefined, {costam: "ktostam"}, []]
+mojaTablica.length = 6
+
+elementy sa indeksowane ... od 0.
+
+console.log(mojaTablica[6]) =>>> []
+
+
+b) undefined
+
+console.log(mojaZmienna)
+
+c) null, false, true
+
+d) String "", '', ``
+
+e) obiekt {
+     klucz: wartosc,
+     klucz2: wartosc 
+}
+
+console.log(obiekt.klucz) ===> wartosc
+console.log(obiekt.["klucz"]) ===> wartosc
+
+JS oferuje rozne metody (funkcje) ktorych mozna uzyc na danym typie
+
+f) Number / Liczba
+
+zmienne i stale
+
+const (constant) i let (zmienna)
+
+let XXX - wartosc zmienna (mozna przypisywac wartosc wielokrotnie)
+const XXX - wartosc stala - raz przypisana wartosc nei moze byc zmieniania
+
+
+iterowanie tablicy... [tablica].map(element => transformacja_elementu)
+
+
+rozbudowana struktura z danymi.... obiekty moga zawierac inne obiekty, tablice, obiekty w tablicach
+
+ustalamy sciezke dojscia do interesujacej nas informacji zaczynajac od poczatku 
+
+np 
+
+obiekt.klucz_elementu[indeks_tablicy].klucz_elementu.klucz_elementu[5] 
+
+
+
+
+DZIEN 1
+
+
+ogolne zasady programowania
+
+DRY - don't repeat yourself (CSS-uzycie klas zamiast styli inline;  tworzenie wyspecjalizowanych klas i korzystanie z kaskadowosci - 1 element moze byc ostylowany kilkoma klasami, kazda kolejna uzupelnia badz nadpisuje poprzednia)
+DRO - don't repeat others (JS - wykorzystanie tego co stworzyli juz inni - np zewn. bibliotek)
+
+==============================
+HTML - CSS - JS
+==============================
+
+przegladardka rozumie tylko HTML+CSS+JS wiec wszystkie rzeczy na serwerze ktore maja byc wyswietlane w przegladarce pomimo roznych jezykow programowania (PHP, python) musza "wyswietlac" HTML+CSS (+JS)
+
+
+HTML
+=====
+
+https://validator.w3.org/
+https://www.w3schools.com/html/html_paragraphs.asp
+
+• semantyka h1, h2, h3.... znacznikami probuje opisac sie TYP zawartosci (nie sama tresc) - ma to byc podpowiedz chocby dla robotow wyszukiwarek ktore nie analizuja samej tresci a staraja sie zrozumiec ktory element strony jest istotny (=moze byc istotny dla tego kto poszukuje tresci)
+• kaskadowosc (znaczniki ktore zawieraja inne znaczniki musza byc prawidlowo zamykane ... "pudelko musi zawierac pudelko")
+
+<div><p></div></p> niepoprawne bo elementy musza byc kaskadowe - tutaj sciana pudelka przechodzi przez inne pudelko :)
+
+id kontra class - id tylko 1 na stronie wiec uzywa sie raczej do sekcji typo header, footer lub z gory poj. elementow (np nazwa lub logo strony)
+
+• lista 1
+• lista 2
+
+<ul>
+  <li>
+    lista 1
+  </li>
+   <li>
+    lista 2
+  </li>
+</ul>
+
+<ul><h3><li>lista 1</li></h3><ul> jest niepoprawne... bo element UL moze zawierac bezposrednio po sobie tylko LI (tak glosi specyfikacja HTML)
+
+rozwiazanie?
+
+<ul>
+  <li>
+    <h3>lista 1</h3>
+  </li>
+</ul>
+
+ale jest tylko pozornie poprawne .... naglowki nie powinny tworzyc elementow listy... li powinno byc ostylowane tak by osiagnac efekt wizualny uzycia h3
+
+<ul><li style="font-size: 30px; font-weight: bold;">lista 1</li><ul>
+
+elementy blokowe i liniowe
+
+blokowe
+-------
+h1,.., h6, p, div
+
+liniowe
+--------
+span
+
+
+<p>tekst</p><p>tekst</p><p>tekst</p><p>tekst</p><p>tekst</p><p>tekst</p><p>tekst</p>
+
+tekst
+tekst
+tekst
+
+<style type="text/css">
+.paragrafJestLiniowy {
+  display: inline;
+}
+</style>
+
+<p class="paragrafJestLiniowy">tekst</p><p class="paragrafJestLiniowy">tekst</p><p class="paragrafJestLiniowy">tekst</p><p class="paragrafJestLiniowy">tekst</p><p class="paragrafJestLiniowy">tekst</p><p>tekst</p><p>tekst</p>
+
+tekstteksttekst
+
+<span style="display: block;"></span>
+
+CSS moze zmieniac sposob wyswietlania elementu HTML na inny niz predefiniowany przez HTML
+
+CSS
+=====
+
+w sekcji HEAD ... stylowanie po klasach (.klasa) i ID (#id)
+
+<p class="asd" .... 
+
+<style> 
+    .asd { 
+    ... uczymy sie z https://www.w3schools.com/css/ lub inspektora CHROME :) ... 
+    }
+</style>
+
+.klasa_nasladujaca_element_na_jakies_stronie {
+  
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin: 0;
+    line-height: 1.167;
+    font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 6rem;
+    color: red;
+
+}
+
+.klasa_nasladujaca_element_na_jakies_stronie2 {
+  
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin: 0;
+    line-height: 1.167;
+    font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 6rem;
+    color: blue;
+}
+
+/*ROZNICA!!!!*/ color: blue;
+
+<p class="klasa_nasladujaca_element_na_jakies_stronie">tekst</p>
+<p class="klasa_nasladujaca_element_na_jakies_stronie2">tekst 2</p>
+
+takie uzycie klas jest nieprawidlowe bo lamie zasade DRY ... powinno sie korzystac z kaskadowosci i wyspecjalizowania klas
+
+dlatego czesto jest 10 klas zamiast 1... np 1 element korzysta z 5 a inny z 7 
+
+rozwiazanie
+
+.klasa_nasladujaca_element_na_jakies_stronie {
+  
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin: 0;
+    line-height: 1.167;
+    font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 6rem;
+    color: red;
+
+}
+
+.klasa_nasladujaca_element_na_jakies_stronie2 {
+  
+
+    /*ROZNICA!!!!*/ color: blue;
+
+}
+
+<p class="klasa_nasladujaca_element_na_jakies_stronie">...
+<p class="klasa_nasladujaca_element_na_jakies_stronie klasa_nasladujaca_element_na_jakies_stronie2">...
+
+alternatywnie nadpisujemy klase CSS w ramach znacznika w ktorym jej uzywamy
+
+<p class="klasa_nasladujaca_element_na_jakies_stronie" style="color: blue;">
+
+style inline > style w sekcji HEAD
+
+JS
+===
+
+kiedys oddzielny element strony- dzis malo wykorzystany w czystej postaci
+
+zamiast tego korzystamy z "meta-jezykow" ktore sa bardziej przyjazne i sa transpilowane do czystego JS (ktory rozumie przegladarka)
+
+"Architektura" kiedys
+=================
+
+MVC - model-view-controller
+
+"framework" - zestaw bibliotek a przede wszystkim ZASAD ktore przeciwdzialaja DRO, DRY 
+
+kazdy jezyk ma jakis popularny (w danym momencie :-) framework... php ma Laravela, Symfony...python ma Django, ruby ma RubyOnRails itd
+
+projekt stworzony we frameworku jezyka innego niz Javascript wymaga serwera gdyz nie jest rozumiany przez przegladarke
+
+---> wypluwa HTML+CSS(+JS) 
+
+PHP - laravel
+
+routing (co ma gdzie trafic) -> kontroler -> model -> widok
+
+kontroler laczy dane z modelu z widokiem - widok to mix HTML i znacznikow ktore sa zamieniane na dane z kontrolera
+
+takie podejscie powoduje ze projekty sa bardzo ciezko rozwijane / malo elastyczne
+
+
+
+inna (bardziej wspolczesna) architektura/podejscie
+
+klient-serwer(api)
+
+Serwer API - udostepnia tylko czyste dane ktore moga byc wykorzystywane w dziesiatki sposobow (aplikacja mobilna, strona www, aplikacja smartTV)
+
+dane najczesciej pokazane jako JSON (https://api.eventjuicer.com/v1/public/hosts/targiehandlu.pl/companies)
+
+ten format jest "rozumiany" przez JS ... kazdy "tekst JSON" moze od razu stac sie obiektem lub tablica JS na ktorej mozna pracowac (nie potrzeba dodatkowych parserow tych danych)
+
+
+JSON (CHROME JSON Formatter)
+
+{} obiekt
+[] tablica
+
+
+JS
+===
+
+React (FB), Angular (Google), VueJs (niezalezny)
+
+
+REACT - na podstawie mini frameworka Create-React-App
+
+transpilacja JSX (via Babel) do czystego JS
+
+<Komponent />
+
+musi importowac React gdyz korzystamy z JSX a nie JS (JSX jest transpilowany do JS przez Babel - dzieje sie w tle po kazdym zapisaniu pliku)
+
+musi definiowac conajmniej 1 funkcje
+
+musi miec conajmniej 1 eksport 
+
+finalny widok moze skladac sie z setek mini komponentow
+
+idea komponentu jest taka zeby byl samowystarczalny (czyli wykonywal pewne zadania, generowal odpowiednia strukture HTML)
+
+komponent moze przyjmowac parametry ("propsy") z zewnatrz dzieki czemu mozna nimi sterowac i ich nieduplikowac jesli potrzebna jest mala zmiana
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
