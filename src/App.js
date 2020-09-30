@@ -7,19 +7,13 @@ function App() {
 
   console.log(companies.data.[2].profile.keywords.[0])
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      {  
-        <p>
-          ss
-        </p>
-              }   
-        <Component1/>
-      </header>
-    </div>
-  );
+  var dni_tygodnia = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela"]
+
+  return dni_tygodnia.map(function(x){
+    return <h3> {x} </h3>
+  })
+    
+
 }
 
 export default App;
